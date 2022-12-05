@@ -1,10 +1,15 @@
 using CrazyBooks.Models;
+using CrazyBooks_Web.Models.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //builder.Services.AddSingleton<Database>();
+builder.Services.AddDbContext<CrazyBooksDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 var app = builder.Build();
 
