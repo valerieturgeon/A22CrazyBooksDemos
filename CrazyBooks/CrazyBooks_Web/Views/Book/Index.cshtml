@@ -1,0 +1,59 @@
+﻿<div class="container p-3 DivBgForm" >
+  <div class="row pt-4">
+    <div class="col-10">
+      <h2 class="text-primary">Books</h2>
+    </div>
+    <div class="col-2 text-right">
+      <a asp-controller="Book" asp-action="Create" class="btn btn-success">
+        Create New Subject
+      </a>
+    </div>
+  </div>
+
+  <br /><br />
+  <table class="table table-bordered table-striped border-primary" style="width:100%">
+    <thead class="bg-primary">
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          ISBN
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="table-striped  border-dark">
+      @foreach (var item in this.ViewBag.MaListe)
+      {
+        <tr class="text-dark">
+          <td width="80%">@item.Title</td>
+          <td class="text-center">
+            <div class="w-75 btn-group" role="group">
+              <a class="btn btn-warning mx-2">
+                Edit
+              </a>
+              <a class="btn btn-danger mx-2">
+                Delete
+              </a>
+            </div>
+          </td>
+        </tr>
+        <tr class="text-dark">
+          <td width="80%">@item.ISBN</td>
+          <td class="text-center">
+            <div class="w-75 btn-group" role="group">
+              <a class="btn btn-warning mx-2">
+                Edit
+              </a>
+              <a class="btn btn-danger mx-2">
+                Delete
+              </a>
+            </div>
+          </td>
+        </tr>
+      }
+
+    </tbody>
+  </table>
+</div>
