@@ -1,4 +1,4 @@
-using CrazyBooks.Models;
+using CrazyBooks_Web.Models;
 using CrazyBooks_Web.Models.Data;
 using Microsoft.EntityFrameworkCore;
 
