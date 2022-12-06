@@ -3,6 +3,7 @@
 <form method="post" asp-action="Create">
   <div class="border p-3 DivBgForm">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+     <input type="hidden" asp-for="Id" />
     <div class="form-group row">
       <h2 class="text-info pl-3">Create a Book</h2>
       <hr />

@@ -1,8 +1,10 @@
-﻿@model CrazyBooks_Web.Models.Subject
+﻿@*View directement connectée sur le Modèle*@
+@model CrazyBooks_Web.Models.Subject
 
 <form method="post" asp-action="Create">
   <div class="border p-3 DivBgForm">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+     <input type="hidden" asp-for="Id" />
     <div class="form-group row">
       <h2 class="text-info pl-3">Create a Subject</h2>
       <hr />

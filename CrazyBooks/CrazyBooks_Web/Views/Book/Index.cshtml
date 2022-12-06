@@ -1,11 +1,13 @@
-﻿<div class="container p-3 DivBgForm" >
+﻿@model List<Book>
+
+<div class="container p-3 DivBgForm" >
   <div class="row pt-4">
     <div class="col-10">
       <h2 class="text-primary">Books</h2>
     </div>
     <div class="col-2 text-right">
       <a asp-controller="Book" asp-action="Create" class="btn btn-success">
-        Create New Subject
+        Create New Book
       </a>
     </div>
   </div>
@@ -24,7 +26,7 @@
       </tr>
     </thead>
     <tbody class="table-striped  border-dark">
-      @foreach (var item in this.ViewBag.MaListe)
+      @foreach (var item in Model)
       {
         <tr class="text-dark">
           <td width="80%">@item.Title</td>
