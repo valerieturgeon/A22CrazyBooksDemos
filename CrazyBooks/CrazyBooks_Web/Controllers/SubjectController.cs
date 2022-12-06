@@ -1,4 +1,5 @@
 ﻿using CrazyBooks_Web.Models;
+using CrazyBooks_Web.Models.Data;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,10 @@ namespace CrazyBooks.Controllers
 {
   public class SubjectController : Controller
   {
-    private Database _database { get; set; }
+        // Injection du DbContext
+    private CrazyBooksDbContext _database { get; set; }
 
-        public SubjectController(Database database)
+        public SubjectController(CrazyBooksDbContext database)
         {
             _database = database;
         }
@@ -19,7 +21,7 @@ namespace CrazyBooks.Controllers
         
         public IActionResult Index()
     {
-         List<Subject> objList = _database.Subjects.ToList();
+         List<Subject> objList = _database.Subject.ToList();
 
             return View(objList);
     }
@@ -37,7 +39,8 @@ namespace CrazyBooks.Controllers
       if (ModelState.IsValid)
       {
                 // Ajouter à la BD
-                _database.Subjects.Add(subject);
+                _database.Subject.Add(subject);
+                _database.SaveChanges(); //sinon pas d'enregistrement physique sur la BD
                 return this.RedirectToAction("Index");
       }
 
